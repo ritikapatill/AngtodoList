@@ -1,0 +1,30 @@
+<div class="todo-container">
+  <h1>{{ title }}</h1> <!-- Updated to use the title property -->
+  <div class="input-group">
+    <input type="text" [(ngModel)]="searchInput" placeholder="Add a new task..." />
+    <button (click)="addTask()">Add</button>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Done</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let task of tasks">
+        <td>{{ task.name }}</td>
+        <td>
+          <button class="button" (click)="updateTask(task.id)">
+            {{ task.completed ? 'Completed' : 'Not Completed' }}
+          </button>
+        </td>
+        <td>
+          <button (click)="removeTask(task.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
