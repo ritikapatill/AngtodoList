@@ -21,6 +21,7 @@ export class AppComponent {
   loadTasks() {
     this.todoService.getTasks().subscribe((data) => {
       console.log(data);
+      
       this.tasks = data; // Load tasks from the service
     });
   }
